@@ -1,0 +1,12 @@
+.navlinks {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navlinks li {
+  list-style: none;
+}
+
+.navlinks a {
+  text-decoration: none;
+}
