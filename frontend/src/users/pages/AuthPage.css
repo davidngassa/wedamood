@@ -1,0 +1,31 @@
+.auth-section__container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10%;
+}
+
+.auth-page__form {
+  margin-top: 40px;
+  width: 50%;
+}
+
+.auth-section__header h1 {
+  font-size: 48px;
+}
+
+#auth-page__switch-mode-button {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  outline: none;
+}
+
+#auth-page__switch-mode-button:hover {
+  font-weight: 700;
+}

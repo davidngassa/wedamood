@@ -10,10 +10,20 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   margin: 15px 0;
+  outline: none;
 }
 
 .Button:hover {
   color: #333333;
   background: transparent;
   border: 3px solid #333333;
+}
+
+.Button:disabled,
+.Button:hover:disabled,
+.Button:active:disabled {
+  background: #ccc;
+  color: #979797;
+  border-color: #ccc;
+  cursor: not-allowed;
 }
