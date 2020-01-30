@@ -16,7 +16,7 @@ const App = () => {
     <Router>
       <MainNavigation />
       <Switch>
-        <Route path="/" exact>
+        <Route path="/home" exact>
           <Cities />
         </Route>
         <Route path="/search" exact>
