@@ -1,0 +1,19 @@
+.Button {
+  border: 3px solid transparent;
+  font-size: 1em;
+  padding: 12px 30px;
+  background: #333333;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 15px 0;
+}
+
+.Button:hover {
+  color: #333333;
+  background: transparent;
+  border: 3px solid #333333;
+}
