@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -6,6 +6,7 @@ import {
   Switch
 } from "react-router-dom";
 
+import { AuthContext } from "./shared/context/auth-context";
 import LandingPage from "./shared/pages/LandingPage";
 import AuthPage from "./users/pages/AuthPage";
 import Cities from "./cities/pages/Cities";
@@ -14,25 +15,58 @@ import MainNavigation from "./shared/Navigation/MainNavigation";
 import "./App.css";
 
 const App = () => {
-  return (
-    <Router>
-      <MainNavigation />
-      <Switch>
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const login = useCallback(() => {
+    setIsLoggedIn(true);
+  }, []);
+
+  const logout = useCallback(() => {
+    setIsLoggedIn(false);
+  }, []);
+
+  let routes;
+
+  if (isLoggedIn) {
+    routes = (
+      <React.Fragment>
+        <Route path="/home" exact>
+          <Cities />
+        </Route>
+        <Route path="/auth" exact>
+          <AuthPage />
+        </Route>
+        <Route path="/search" exact>
+          <SearchCity />
+        </Route>
+        <Redirect to="/home" />
+      </React.Fragment>
+    );
+  } else {
+    routes = (
+      <React.Fragment>
         <Route path="/" exact>
           <LandingPage />
         </Route>
         <Route path="/auth" exact>
           <AuthPage />
         </Route>
-        <Route path="/home" exact>
-          <Cities />
-        </Route>
-        <Route path="/search" exact>
-          <SearchCity />
-        </Route>
         <Redirect to="/" />
-      </Switch>
-    </Router>
+      </React.Fragment>
+    );
+  }
+
+  return (
+    <AuthContext.Provider
+      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+    >
+      <Router>
+        <MainNavigation />
+        <main>
+          <Switch>{routes}</Switch>
+        </main>
+      </Router>
+    </AuthContext.Provider>
   );
 };
 

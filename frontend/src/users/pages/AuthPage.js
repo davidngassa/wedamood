@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import "./AuthPage.css";
 import Input from "../../shared/UIElements/Input";
@@ -7,6 +7,7 @@ import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH
 } from "../../shared/Util/validators";
+import { AuthContext } from "../../shared/context/auth-context";
 import { useForm } from "../../shared/hooks/form-hook";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
@@ -14,24 +15,29 @@ import AuthAnimation from "../components/AuthAnimation";
 import Button from "../../shared/UIElements/Button";
 
 const AuthPage = () => {
+  const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
 
-  const [formState, inputHandler, setFormData] = useForm({
-    email: {
-      value: "",
-      isValid: false
+  const [formState, inputHandler, setFormData] = useForm(
+    {
+      email: {
+        value: "",
+        isValid: false
+      },
+      password: {
+        value: "",
+        isValid: false
+      }
     },
-    password: {
-      value: "",
-      isValid: false
-    }
-  });
+    false
+  );
 
   // Switch between sign up and sign in
   const swicthModeHandler = () => {
     if (!isLoginMode) {
       setFormData(
         {
+          ...formState.inputs,
           username: undefined
         },
         formState.inputs.email.isValid && formState.inputs.password.isValid
@@ -55,6 +61,7 @@ const AuthPage = () => {
   const authSubmitHandler = event => {
     event.preventDefault();
     console.log(formState.inputs);
+    auth.login();
   };
 
   return (

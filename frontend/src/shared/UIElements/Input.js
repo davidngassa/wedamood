@@ -1,5 +1,6 @@
 import React, { useReducer, useEffect } from "react";
 
+import { MdError } from "react-icons/md";
 import { validate } from "../Util/validators";
 import "./Input.css";
 
@@ -51,26 +52,44 @@ const Input = props => {
     });
   };
 
+  const determinePlaceholder = type => {
+    switch (type) {
+      case "email":
+        return "johndoe@email.com";
+      case "password":
+        return "It will be your secret";
+      case "text":
+        return "John Doe";
+      default:
+        return null;
+    }
+  };
+
   return (
     <div
       className={`form-control ${!inputState.isValid &&
         inputState.isTouched &&
         "form-control--invalid"}`}
     >
+      <div className="input-header">
+        <p className="input-title">{props.placeholder}</p>
+        {!inputState.isValid && inputState.isTouched && (
+          <div className="input-error">
+            <MdError />
+            <p>{props.errorText}</p>
+          </div>
+        )}
+      </div>
+
       <input
         autoCorrect="off"
         id={props.id}
         type={props.type}
-        placeholder={props.placeholder}
+        placeholder={determinePlaceholder(props.type)}
         onChange={changeHandler}
         onBlur={touchHandler}
         value={inputState.value}
       />
-      {!inputState.isValid && inputState.isTouched && (
-        <div className="input-error">
-          <p>{props.errorText}</p>
-        </div>
-      )}
     </div>
   );
 };

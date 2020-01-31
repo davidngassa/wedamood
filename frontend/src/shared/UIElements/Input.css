@@ -1,5 +1,5 @@
 .form-control input {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   background: transparent;
   border: none;
   border-bottom: 1px solid rgb(170, 170, 170);
@@ -12,10 +12,21 @@
   display: block;
 }
 
+.form-control input::placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.input-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .form-control--invalid .input-error {
-  background: rgb(170, 170, 170);
-  margin-bottom: 50px;
   color: #f9d71c;
   display: flex;
-  justify-content: center;
+  align-items: center;
+}
+
+.input-title {
+  font-weight: bold;
 }
