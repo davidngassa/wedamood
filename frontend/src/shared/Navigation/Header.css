@@ -12,17 +12,22 @@
   font-size: 16px;
   line-height: 25px;
   font-weight: 600;
+  transition: 0.3s all ease;
+  color: #fff;
 }
 
 .header a.logo {
   text-decoration: none;
   font-size: 25px;
   font-weight: bold;
-  font-family: Foco;
+  /* font-family: Foco; */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 .header a:hover {
-  background-color: #ddd;
+  text-decoration: underline;
 }
 
 /* .header a.active {

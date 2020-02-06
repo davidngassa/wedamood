@@ -82,6 +82,7 @@ const Input = props => {
       </div>
 
       <input
+        autoComplete="off"
         autoCorrect="off"
         id={props.id}
         type={props.type}

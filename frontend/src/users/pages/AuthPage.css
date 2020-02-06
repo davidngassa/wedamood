@@ -5,10 +5,11 @@
   flex-direction: column;
   justify-content: center;
   margin-left: 10%;
+  color: #fff;
 }
 
 .auth-page__form {
-  margin-top: 40px;
+  margin-top: 15px;
   width: 50%;
 }
 
@@ -24,8 +25,11 @@
   cursor: pointer;
   text-decoration: underline;
   outline: none;
+  color: #fff;
+  margin-left: 5px;
+  transition: 0.3s all ease-in-out;
 }
 
 #auth-page__switch-mode-button:hover {
-  font-weight: 700;
+  background: rgba(0, 0, 0, 0.2);
 }

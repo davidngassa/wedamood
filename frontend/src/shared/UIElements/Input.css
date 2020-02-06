@@ -2,7 +2,7 @@
   margin-bottom: 30px;
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgb(170, 170, 170);
+  border-bottom: 1px solid #fff;
   padding-bottom: 10px;
   outline: none;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -10,10 +10,15 @@
   font-size: 16px;
   width: 100%;
   display: block;
+  color: #fff;
+}
+
+.form-control input:focus {
+  background: transparent;
 }
 
 .form-control input::placeholder {
-  color: rgb(170, 170, 170);
+  color: #89b9d1;
 }
 
 .input-header {
@@ -22,7 +27,7 @@
 }
 
 .form-control--invalid .input-error {
-  color: #f9d71c;
+  color: #ff6403;
   display: flex;
   align-items: center;
 }
