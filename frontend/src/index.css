@@ -2,16 +2,6 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: "Foco";
-  src: local("Foco"), url(./fonts/Foco-Regular.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Gotham";
-  src: local("Foco"), url(./fonts/GothamLight.ttf) format("truetype");
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -22,10 +12,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
   overflow-x: hidden;
-  background: #0379ff;
+  background: #00bbff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@font-face {
+  font-family: "Foco";
+  src: local("Foco"), url(./fonts/Foco-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: local("Foco"), url(./fonts/GothamLight.ttf) format("truetype");
 }

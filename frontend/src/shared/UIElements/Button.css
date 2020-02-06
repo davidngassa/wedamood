@@ -15,7 +15,7 @@
 
 .Button:hover {
   color: #ff6403;
-  background: transparent;
+  background: rgba(255, 100, 3, 0.3);
   border: 3px solid #ff6403;
 }
 
@@ -23,7 +23,7 @@
 .Button:hover:disabled,
 .Button:active:disabled {
   background: #ff6403b6;
-  color: #979797;
+  color: rgb(214, 211, 211);
 
   cursor: not-allowed;
 }

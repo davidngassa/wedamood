@@ -1,0 +1,10 @@
+.wrapper {
+  width: 85%;
+  height: 75vh;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 50, 3, 0.2);
+  border-radius: 50px;
+}
