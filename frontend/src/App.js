@@ -9,7 +9,7 @@ import {
 import { AuthContext } from "./shared/context/auth-context";
 import LandingPage from "./shared/pages/LandingPage";
 import AuthPage from "./users/pages/AuthPage";
-import Cities from "./cities/pages/Cities";
+import Home from "./cities/pages/Home";
 import SearchCity from "./cities/pages/SearchCity";
 import MainNavigation from "./shared/Navigation/MainNavigation";
 import "./App.css";
@@ -31,7 +31,7 @@ const App = () => {
     routes = (
       <React.Fragment>
         <Route path="/home" exact>
-          <Cities />
+          <Home />
         </Route>
         <Route path="/auth" exact>
           <AuthPage />

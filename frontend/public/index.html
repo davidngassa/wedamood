@@ -8,10 +8,37 @@
     <meta name="description" content="Minimal weather App" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <title>Wedamood</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="backdrop-hook"></div>
+    <div id="modal-hook"></div>
     <div id="root"></div>
+    <script>
+      $(document).ready(function() {
+        $(".owl-carousel").owlCarousel({
+          loop: true,
+          margin: 10,
+          responsiveClass: true,
+          responsive: {
+            0: {
+              items: 1,
+              nav: true
+            },
+            600: {
+              items: 3,
+              nav: false
+            },
+            1000: {
+              items: 5,
+              nav: true,
+              loop: false
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>

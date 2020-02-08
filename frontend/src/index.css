@@ -2,16 +2,6 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: "Foco";
-  src: local("Foco"), url(./fonts/Foco-Regular.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Gotham";
-  src: local("Foco"), url(./fonts/GothamLight.ttf) format("truetype");
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -20,7 +10,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #333333;
+  color: #fff;
+  overflow-x: hidden;
+  background: #00bbff;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
 }
 
 code {
@@ -28,13 +25,12 @@ code {
     monospace;
 }
 
-a {
-  color: #333333;
+@font-face {
+  font-family: "Foco";
+  src: local("Foco"), url(./fonts/Foco-Regular.ttf) format("truetype");
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px white inset !important;
+@font-face {
+  font-family: "Gotham";
+  src: local("Foco"), url(./fonts/GothamLight.ttf) format("truetype");
 }

@@ -1,0 +1,19 @@
+.add-button {
+  height: 560.89px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #01a7e4;
+  border-radius: 5%;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+}
+
+.add-button h1 {
+  margin-top: -60px;
+}
+
+.add-button:hover {
+  background: #008dc0;
+}

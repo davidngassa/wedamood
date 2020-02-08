@@ -11,8 +11,8 @@
   height: 46px;
   margin: 1px;
   border-radius: 50%;
-  border: 5px solid #333333;
-  border-color: #333333 transparent #333333 transparent;
+  border: 5px solid #fff;
+  border-color: #fff transparent #fff transparent;
   animation: loading-ring 1.2s linear infinite;
 }
 

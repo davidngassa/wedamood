@@ -2,10 +2,10 @@
   border: 3px solid transparent;
   font-size: 1em;
   padding: 12px 30px;
-  background: #333333;
+  background: #ff6403;
   font-weight: 600;
   color: white;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -14,16 +14,16 @@
 }
 
 .Button:hover {
-  color: #333333;
-  background: transparent;
-  border: 3px solid #333333;
+  color: #ff6403;
+  background: rgba(255, 100, 3, 0.3);
+  border: 3px solid #ff6403;
 }
 
 .Button:disabled,
 .Button:hover:disabled,
 .Button:active:disabled {
-  background: #ccc;
-  color: #979797;
-  border-color: #ccc;
+  background: #ff6403b6;
+  color: rgb(214, 211, 211);
+
   cursor: not-allowed;
 }

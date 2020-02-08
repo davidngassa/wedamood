@@ -1,0 +1,34 @@
+.city {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #01a7e4;
+  border-radius: 5%;
+  padding: 40px 0;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+}
+
+.city:hover {
+  background: #008dc0;
+}
+
+.city__footer {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.city__animation {
+  position: relative;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.city__temperature h4 {
+  margin-bottom: -10px;
+}
