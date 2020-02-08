@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 50, 3, 0.2);
+  background: #01a7e4;
   border-radius: 5%;
   padding: 40px 0;
   cursor: pointer;
@@ -12,7 +12,7 @@
 }
 
 .city:hover {
-  background: rgba(255, 50, 3, 0.1);
+  background: #008dc0;
 }
 
 .city__footer {

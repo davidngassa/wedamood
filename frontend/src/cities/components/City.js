@@ -7,8 +7,6 @@ import { EvaluateWeatherId } from "./weatherCalculator";
 const City = props => {
   const { name, currTemp, minTemp, maxTemp, weatherId } = props;
   const weatherDescription = EvaluateWeatherId(weatherId);
-  console.log("weather id : " + weatherId);
-  console.log("weather description : " + weatherDescription);
 
   return (
     <div className="city">

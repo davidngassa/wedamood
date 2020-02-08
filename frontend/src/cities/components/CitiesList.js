@@ -8,12 +8,13 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 // Custom imports
 import "./CitiesList.css";
 import City from "./City";
+import AddCityButton from "./AddCityButton";
 
 const CitiesList = props => {
   const userCities = props.data;
 
   return (
-    <OwlCarousel className="owl-theme" margin={20} nav items={4}>
+    <OwlCarousel className="owl-theme" margin={20} nav dots={false} items={4}>
       {userCities.map((city, i) => (
         <City
           key={i}
@@ -26,6 +27,7 @@ const CitiesList = props => {
           maxTemp={city.main.temp_max}
         />
       ))}
+      <AddCityButton />
     </OwlCarousel>
   );
 };
