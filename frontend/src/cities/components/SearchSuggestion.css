@@ -1,0 +1,28 @@
+.search-suggestion {
+  font-size: 1.2rem;
+
+  display: block;
+
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+
+  cursor: pointer;
+  transition: 0.2s background ease-in-out;
+
+  color: rgb(235, 235, 235);
+  border-radius: 5px;
+  background: #009cd4;
+}
+
+.search-suggestion:first-child {
+  margin-top: 30px;
+}
+
+.search-suggestion:hover {
+  background: #0092c7;
+}
+
+.search-suggestion span {
+  font-size: 0.9rem;
+}

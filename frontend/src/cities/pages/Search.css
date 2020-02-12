@@ -1,0 +1,34 @@
+.search-container {
+  flex-direction: column;
+  justify-content: unset;
+}
+
+.search-wrapper {
+  width: 50%;
+  padding: 15px 20px;
+
+  transition: height 0.3s linear;
+  text-align: left;
+
+  border-radius: 10px;
+  background: #01a7e4;
+}
+
+#search-input::selection {
+  background-color: #028cbe;
+}
+
+#search-input {
+  font-size: 2em;
+
+  width: 50%;
+
+  color: #fff;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+#search-input::placeholder {
+  color: #028cbe;
+}

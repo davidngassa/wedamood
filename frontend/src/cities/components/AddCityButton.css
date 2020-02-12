@@ -1,13 +1,17 @@
 .add-button {
-  height: 560.89px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #01a7e4;
-  border-radius: 5%;
+
+  height: 560.89px;
+
   cursor: pointer;
   transition: 0.2s all ease-in-out;
+
+  border-radius: 5%;
+  background: #01a7e4;
+
+  justify-content: center;
+  align-items: center;
 }
 
 .add-button h1 {

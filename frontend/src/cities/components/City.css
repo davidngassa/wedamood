@@ -1,14 +1,18 @@
 .city {
-  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #01a7e4;
-  border-radius: 5%;
+
   padding: 40px 0;
+
   cursor: pointer;
   transition: 0.2s all ease-in-out;
+  text-align: center;
+
+  border-radius: 5%;
+  background: #01a7e4;
+
+  justify-content: center;
+  align-items: center;
 }
 
 .city:hover {
@@ -16,15 +20,20 @@
 }
 
 .city__footer {
-  width: 50%;
   display: flex;
+
+  width: 50%;
+
   justify-content: space-around;
 }
 
 .city__animation {
   position: relative;
-  height: 150px;
+
   display: flex;
+
+  height: 150px;
+
   justify-content: center;
   align-items: center;
 }

@@ -10,8 +10,9 @@ import { AuthContext } from "./shared/context/auth-context";
 import LandingPage from "./shared/pages/LandingPage";
 import AuthPage from "./users/pages/AuthPage";
 import Home from "./cities/pages/Home";
-import SearchCity from "./cities/pages/SearchCity";
+import Search from "./cities/pages/Search";
 import MainNavigation from "./shared/Navigation/MainNavigation";
+import Forecast from "./cities/pages/Forecast";
 import "./App.css";
 
 const App = () => {
@@ -37,8 +38,9 @@ const App = () => {
           <AuthPage />
         </Route>
         <Route path="/search" exact>
-          <SearchCity />
+          <Search />
         </Route>
+
         <Redirect to="/home" />
       </React.Fragment>
     );
@@ -51,6 +53,7 @@ const App = () => {
         <Route path="/auth" exact>
           <AuthPage />
         </Route>
+        <Route path="/forecast/:cid" exact component={Forecast} />
         <Redirect to="/" />
       </React.Fragment>
     );
