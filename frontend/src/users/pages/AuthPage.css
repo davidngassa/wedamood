@@ -1,16 +1,19 @@
 .auth-section__container {
-  width: 50%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
+  width: 50%;
+  height: 100%;
   margin-left: 10%;
+
   color: #fff;
+
+  justify-content: center;
 }
 
 .auth-page__form {
-  margin-top: 15px;
   width: 50%;
+  margin-top: 15px;
 }
 
 .auth-section__header h1 {
@@ -18,16 +21,19 @@
 }
 
 #auth-page__switch-mode-button {
-  border: none;
-  background: transparent;
   font-size: 16px;
   font-weight: 600;
-  cursor: pointer;
-  text-decoration: underline;
-  outline: none;
-  color: #fff;
+
   margin-left: 5px;
+
+  cursor: pointer;
   transition: 0.3s all ease-in-out;
+  text-decoration: underline;
+
+  color: #fff;
+  border: none;
+  outline: none;
+  background: transparent;
 }
 
 #auth-page__switch-mode-button:hover {

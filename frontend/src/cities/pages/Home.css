@@ -1,8 +1,10 @@
 .container {
+  display: flex;
+
   width: 85%;
   height: 75vh;
   margin: 50px auto;
-  display: flex;
+
   align-items: center;
   justify-content: center;
 }

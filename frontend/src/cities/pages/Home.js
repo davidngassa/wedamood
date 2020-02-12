@@ -67,8 +67,6 @@ const Home = () => {
     sendRequest();
   }, []); */
 
-  console.log(userCities);
-
   const errorHandler = () => {
     setError(null);
   };
