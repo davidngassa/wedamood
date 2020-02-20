@@ -1,7 +1,7 @@
 .owl-next span,
 .owl-prev span {
   font-size: 50px;
-  font-weight: 700;
+
   transition: 0.2s all ease-in-out;
 }
 
@@ -20,4 +20,8 @@
 
 .owl-theme .owl-nav [class*="owl-"]:hover {
   background: transparent;
+}
+
+.owl-stage-outer {
+  margin-bottom: 50px;
 }

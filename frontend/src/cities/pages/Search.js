@@ -39,7 +39,7 @@ const Search = () => {
             <SearchSuggestion
               cityName={city.name}
               cityCountry={city.country}
-              cityApiId={city.Id}
+              cityApiId={city.id}
             />
           ))}
         </div>

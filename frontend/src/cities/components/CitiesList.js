@@ -14,7 +14,7 @@ const CitiesList = props => {
   const userCities = props.data;
 
   return (
-    <OwlCarousel className="owl-theme" margin={20} nav dots={false} items={4}>
+    <OwlCarousel className="owl-theme" margin={100} nav dots={false} items={3}>
       {userCities.map((city, i) => (
         <City
           key={i}

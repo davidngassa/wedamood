@@ -1,6 +1,6 @@
 const cities = [
   {
-    id: 1,
+    id: "1",
     name: "Yaounde",
     weather: [
       {
@@ -19,7 +19,7 @@ const cities = [
     user: "01"
   },
   {
-    id: 2,
+    id: "2",
     name: "Douala",
     weather: [
       {
@@ -38,7 +38,7 @@ const cities = [
     user: "02"
   },
   {
-    id: 3,
+    id: "3",
     name: "Paris",
     weather: [
       {
@@ -57,7 +57,7 @@ const cities = [
     user: "02"
   },
   {
-    id: 4,
+    id: "4",
     name: "London",
     weather: [
       {

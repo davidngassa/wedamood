@@ -84,6 +84,7 @@ const Input = props => {
       <input
         autoComplete="off"
         autoCorrect="off"
+        spellCheck="false"
         id={props.id}
         type={props.type}
         placeholder={determinePlaceholder(props.type)}
