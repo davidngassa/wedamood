@@ -30,32 +30,33 @@ const App = () => {
 
   if (isLoggedIn) {
     routes = (
-      <React.Fragment>
+      <Switch>
         <Route path="/home" exact>
           <Home />
-        </Route>
-        <Route path="/auth" exact>
-          <AuthPage />
         </Route>
         <Route path="/search" exact>
           <Search />
         </Route>
-
+        <Route path="/forecast/:cid/" exact>
+          <Forecast />
+        </Route>
         <Redirect to="/home" />
-      </React.Fragment>
+      </Switch>
     );
   } else {
     routes = (
-      <React.Fragment>
+      <Switch>
         <Route path="/" exact>
           <LandingPage />
         </Route>
         <Route path="/auth" exact>
           <AuthPage />
         </Route>
-        <Route path="/forecast/:cid" exact component={Forecast} />
+        <Route path="/forecast/:cid/" exact>
+          <Forecast />
+        </Route>
         <Redirect to="/" />
-      </React.Fragment>
+      </Switch>
     );
   }
 
@@ -65,9 +66,7 @@ const App = () => {
     >
       <Router>
         <MainNavigation />
-        <main>
-          <Switch>{routes}</Switch>
-        </main>
+        <main>{routes}</main>
       </Router>
     </AuthContext.Provider>
   );

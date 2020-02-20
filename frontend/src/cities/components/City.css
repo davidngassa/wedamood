@@ -1,39 +1,30 @@
 .city {
   display: flex;
   flex-direction: column;
-
   padding: 40px 0;
-
   cursor: pointer;
   transition: 0.2s all ease-in-out;
   text-align: center;
-
   border-radius: 5%;
-  background: #01a7e4;
-
+  background-color: #0093c948;
   justify-content: center;
   align-items: center;
 }
 
 .city:hover {
-  background: #008dc0;
+  background-color: #008dc0;
 }
 
 .city__footer {
   display: flex;
-
   width: 50%;
-
   justify-content: space-around;
 }
 
 .city__animation {
   position: relative;
-
   display: flex;
-
   height: 150px;
-
   justify-content: center;
   align-items: center;
 }

@@ -27,7 +27,7 @@
 }
 
 .form-control--invalid .input-error {
-  color: #ff6403;
+  color: #e47129;
   display: flex;
   align-items: center;
 }

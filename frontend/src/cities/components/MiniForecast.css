@@ -1,0 +1,15 @@
+.mini-forecast {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.mini-forecast__animation {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
