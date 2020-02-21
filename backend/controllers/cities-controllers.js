@@ -1,3 +1,6 @@
+const uuid = require("uuid");
+const { validationResult } = require("express-validator");
+
 const HttpError = require("../models/http-error");
 
 let DUMMY_PLACES = [
@@ -34,9 +37,16 @@ const getCitiesByUserId = (req, res, next) => {
 };
 
 const saveCity = (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    throw new HttpError("Invalid inputs passed, please check your data", 422);
+  }
+
   const { apiId, uid } = req.body;
 
   const savedCity = {
+    id: uuid(),
     apiId,
     uid
   };
@@ -48,11 +58,8 @@ const saveCity = (req, res, next) => {
 
 const deleteCityById = (req, res, next) => {
   const cityId = req.params.cid;
-  const city = DUMMY_PLACES.find(c => {
-    return c.id === cityId;
-  });
 
-  if (!city) {
+  if (!DUMMY_PLACES.find(c => c.id === cityId)) {
     return next(new HttpError("Could not find city for the provided id", 404));
   }
 
