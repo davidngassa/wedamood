@@ -1,7 +1,9 @@
-const uuid = require("uuid");
+const mongoose = require("mongoose");
 const { validationResult } = require("express-validator");
 
 const HttpError = require("../models/http-error");
+const City = require("../models/city");
+const User = require("../models/user");
 
 let DUMMY_PLACES = [
   {
@@ -21,11 +23,19 @@ let DUMMY_PLACES = [
   }
 ];
 
-const getCitiesByUserId = (req, res, next) => {
+const getCitiesByUserId = async (req, res, next) => {
   const userId = req.params.uid;
-  const userCities = DUMMY_PLACES.filter(c => {
-    return c.user === userId;
-  });
+  let userCities;
+
+  try {
+    userCities = await City.find({ user: userId });
+  } catch (err) {
+    const error = new HttpError(
+      "Something went wrong, could not find any city for this user",
+      500
+    );
+    return next(error);
+  }
 
   if (!userCities || userCities.length === 0) {
     return next(
@@ -33,39 +43,104 @@ const getCitiesByUserId = (req, res, next) => {
     );
   }
 
-  res.json({ userCities });
+  res.json({
+    userCities: userCities.map(city => city.toObject({ getters: true }))
+  });
 };
 
-const saveCity = (req, res, next) => {
+const saveCity = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
     throw new HttpError("Invalid inputs passed, please check your data", 422);
   }
 
-  const { apiId, uid } = req.body;
+  const { apiId, user } = req.body;
 
-  const savedCity = {
-    id: uuid(),
-    apiId,
-    uid
-  };
+  // Checking if user exists
+  let existingUser;
 
-  DUMMY_PLACES.push(savedCity);
+  try {
+    existingUser = await User.findById(user);
+  } catch (err) {
+    return next(new HttpError("Saving city failed , please try again", 500));
+  }
 
-  res.status(201).json({ savedCity });
+  if (!existingUser) {
+    return next(
+      new HttpError("Could not find any user for the provided id", 404)
+    );
+  }
+
+  // Checking if city had already been saved by user
+  let existingCity;
+
+  try {
+    existingCity = await City.findOne({ apiId: apiId, user: user });
+  } catch (err) {
+    return next(new HttpError("Saving city failed , please try again", 500));
+  }
+
+  if (existingCity) {
+    return next(
+      new HttpError("This city exists already in user's library", 402)
+    );
+  }
+
+  // If everything okay goes on to save city
+  const newCity = new City({
+    apiId: apiId,
+    user: user
+  });
+
+  try {
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+
+    await newCity.save({ session: sess });
+    existingUser.cities.push(newCity);
+    await existingUser.save({ session: sess });
+
+    await sess.commitTransaction();
+  } catch (err) {
+    console.log(err);
+    const error = new HttpError("Saving city failed, please try again", 500);
+    return next(error);
+  }
+
+  res.status(201).json({ newCity });
 };
 
-const deleteCityById = (req, res, next) => {
+const deleteCityById = async (req, res, next) => {
   const cityId = req.params.cid;
+  let city;
 
-  if (!DUMMY_PLACES.find(c => c.id === cityId)) {
+  try {
+    city = await City.findById(cityId).populate("user");
+  } catch (err) {
+    return next(
+      new HttpError("Something went wrong, could not delete city", 500)
+    );
+  }
+
+  if (!city) {
     return next(new HttpError("Could not find city for the provided id", 404));
   }
 
-  DUMMY_PLACES = DUMMY_PLACES.filter(c => {
-    return c.id !== city.id;
-  });
+  try {
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+
+    await city.remove({ session: sess });
+    city.user.cities.pull(city);
+    await city.user.save();
+
+    await sess.commitTransaction();
+  } catch (err) {
+    return next(
+      new HttpError("Something went wrong, could not delete city", 500)
+    );
+  }
 
   res.status(200).json({ message: "City deleted successfully." });
 };
