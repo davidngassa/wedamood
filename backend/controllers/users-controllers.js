@@ -1,7 +1,7 @@
-const uuid = require("uuid");
 const { validationResult } = require("express-validator");
 
 const HttpError = require("../models/http-error");
+const User = require("../models/user");
 
 let DUMMY_USERS = [
   {
@@ -12,7 +12,7 @@ let DUMMY_USERS = [
   }
 ];
 
-const signUpUser = (req, res, next) => {
+const signUpUser = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -20,26 +20,43 @@ const signUpUser = (req, res, next) => {
   }
 
   const { username, email, password } = req.body;
+  let existingUser;
 
-  const existingUser = DUMMY_USERS.find(u => u.email === email);
-
-  if (existingUser) {
-    throw new HttpError("Email already exists", 422);
+  try {
+    existingUser = await User.findOne({ email: email });
+  } catch (err) {
+    const error = new HttpError(
+      "Signging up failed, please try again later",
+      500
+    );
+    return next(error);
   }
 
-  const newUser = {
-    id: uuid(),
-    username,
-    email,
-    password
-  };
+  if (existingUser) {
+    return next(
+      new HttpError("User exists already, please login instead", 422)
+    );
+  }
 
-  DUMMY_USERS.push(newUser);
+  const newUser = new User({
+    username: username,
+    email: email,
+    password: password,
+    cities: []
+  });
 
-  res.status(200).json({ newUser });
+  try {
+    await newUser.save();
+  } catch (err) {
+    return next(
+      new HttpError("Signging up failed, please try again later", 500)
+    );
+  }
+
+  res.status(200).json({ newUser: newUser.toObject({ getters: true }) });
 };
 
-const loginUser = (req, res, next) => {
+const loginUser = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -47,10 +64,15 @@ const loginUser = (req, res, next) => {
   }
 
   const { email, password } = req.body;
+  let user;
 
-  const user = DUMMY_USERS.find(u => {
-    return u.email === email && u.password === password;
-  });
+  try {
+    user = await User.findOne({ email: email, password: password });
+  } catch (err) {
+    return next(
+      new HttpError("Logging in failed, please try again later", 500)
+    );
+  }
 
   if (!user) {
     return next(
@@ -58,7 +80,7 @@ const loginUser = (req, res, next) => {
     );
   }
 
-  res.status(200).json({ user });
+  res.status(200).json({ message: "Logged in!" });
 };
 
 exports.signUpUser = signUpUser;

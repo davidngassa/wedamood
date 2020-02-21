@@ -15,7 +15,7 @@ router.post(
     check("apiId")
       .not()
       .isEmpty(),
-    check("uid")
+    check("user")
       .not()
       .isEmpty()
   ],
