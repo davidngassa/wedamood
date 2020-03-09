@@ -41,6 +41,7 @@ const Forecast = () => {
   }, [cid]);
 
   const handleSave = () => {
+    console.log(city);
     console.log(`${city.city.name} added to library`);
   };
 

@@ -37,7 +37,7 @@ const getCitiesByUserId = async (req, res, next) => {
     return next(error);
   }
 
-  if (!userCities || userCities.length === 0) {
+  if (!userCities) {
     return next(
       new HttpError("Could not find any city for the provided userId", 404)
     );

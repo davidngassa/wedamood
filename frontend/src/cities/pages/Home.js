@@ -7,65 +7,74 @@ import CitiesList from "../components/CitiesList";
 import { AuthContext } from "../../shared/context/auth-context";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
-import cities from "../../data/mock";
 
 // Constants to send weather API request
-const API_KEY = "c0d248183fbc1f3682cc81b9cf12d343";
-const API_URL = "https://api.openweathermap.org/data/2.5/weather";
+const API_KEY = "&appid=c0d248183fbc1f3682cc81b9cf12d343&units=metric";
+const API_URL = "https://api.openweathermap.org/data/2.5/group?id=";
 
 const Home = () => {
-  const userCities = cities;
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
-  const [data, setData] = useState(userCities);
+  const [userCities, setUserCities] = useState(null);
   const auth = useContext(AuthContext);
   const userId = auth.userId;
 
-  /* useEffect(() => {
-    const sendRequest = async () => {
+  useEffect(() => {
+    const getUserCities = async () => {
       setIsLoading(true);
 
-      const url = await `http://localhost:5000/api/cities/user/${userId}`;
-
       try {
-        const response = await fetch(url); // Get user cities information from database
-        const responseData = await response.json(); // convert response to JSON
+        const response = await fetch(
+          `http://localhost:5000/api/cities/user/5e66ad7f0eae815764c201cb`
+        );
+        const responseData = await response.json();
 
         if (!response.ok) {
-          throw new Error(responseData.message); // Throw error if request not successful
-        }
-        const userCities = responseData.cities; // Store userCities
-
-        const retrievedData = [];
-
-        if (userCities !== null) {
-          // Loop over cities in userCities
-          await Promise.each(userCities, async city => {
-            try {
-              const storeRes = await fetch(
-                `${API_URL}?id=${city.cid}&appid=${API_KEY}&units=metric`
-              ); // Fetch weather info for city from weather api
-
-              const storeJSON = await storeRes.json(); // convert storeRes to JSON
-              storeJSON.mongoId = city.id;
-              retrievedData.push(storeJSON); // Add city to retrievedData
-            } catch (err) {
-              setError(err.message);
-            }
-          });
-          // Store weather info in data
-          setData(retrievedData);
+          throw new Error(responseData.message);
         }
 
+        sendRequestToWeatherApi(responseData);
         setIsLoading(false);
-        console.log({ userCities: retrievedData });
       } catch (err) {
-        setError(err.message);
+        setIsLoading(false);
+        setError(err.message || "Something went wrong");
       }
-      setIsLoading(false);
     };
-    sendRequest();
-  }, []); */
+
+    const sendRequestToWeatherApi = async data => {
+      const userLibrary = data.userCities;
+      let cityIds = "";
+
+      if (userLibrary === 0) {
+        throw new Error("User library is empty");
+      }
+
+      // Concatenate city Ids into one string
+      for (let i = 0; i < userLibrary.length; i++) {
+        if (i === userLibrary.length - 1) {
+          cityIds += userLibrary[i].apiId;
+        } else {
+          cityIds += userLibrary[i].apiId + ",";
+        }
+      }
+
+      // Send request to weather api
+      try {
+        const response = await fetch(API_URL + cityIds + API_KEY);
+        const responseData = await response.json();
+
+        if (!response.ok) {
+          throw new Error(responseData.message);
+        }
+
+        setUserCities(responseData.list);
+      } catch (err) {
+        setError(err.message || "Something went wrong");
+      }
+    };
+
+    getUserCities();
+  }, []);
 
   const errorHandler = () => {
     setError(null);
@@ -79,9 +88,9 @@ const Home = () => {
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && data && (
+      {!isLoading && userCities && (
         <div className="container">
-          <CitiesList data={userCities} />
+          <CitiesList cities={userCities} />
         </div>
       )}
     </React.Fragment>
