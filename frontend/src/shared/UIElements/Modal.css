@@ -4,7 +4,7 @@
   top: 22vh;
   left: 10%;
   width: 80%;
-  background: white;
+  background: rgb(240, 240, 240);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0 20px;
 }
@@ -12,6 +12,7 @@
 .modal__header {
   padding: 1rem 0.5rem;
   color: #1c1c1c;
+  text-decoration: underline wavy;
   text-align: center;
 }
 
@@ -22,6 +23,7 @@
 .modal__content {
   padding: 1rem 0.5rem;
   text-align: center;
+  color: #1c1c1c;
 }
 
 .modal__footer {
@@ -56,4 +58,12 @@
   transform: translateY(-10rem);
   opacity: 0;
   transition: all 200ms;
+}
+
+#modal-button {
+  color: rgb(240, 240, 240);
+}
+
+#modal-button:hover {
+  color: #ff6403;
 }
