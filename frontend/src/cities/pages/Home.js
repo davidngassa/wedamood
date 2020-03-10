@@ -15,9 +15,8 @@ const API_URL = "https://api.openweathermap.org/data/2.5/group?id=";
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
-  const [userCities, setUserCities] = useState(null);
+  const [userCities, setUserCities] = useState();
   const auth = useContext(AuthContext);
-  const userId = auth.userId;
 
   useEffect(() => {
     const getUserCities = async () => {
@@ -25,7 +24,7 @@ const Home = () => {
 
       try {
         const response = await fetch(
-          `http://localhost:5000/api/cities/user/5e66ad7f0eae815764c201cb`
+          `http://localhost:5000/api/cities/user/${auth.userId}`
         );
         const responseData = await response.json();
 
@@ -33,7 +32,16 @@ const Home = () => {
           throw new Error(responseData.message);
         }
 
-        sendRequestToWeatherApi(responseData);
+        if (responseData.userCities.length !== 0) {
+          sendRequestToWeatherApi(responseData.userCities);
+          localStorage.setItem(
+            "userCities",
+            JSON.stringify(responseData.userCities)
+          ); // Save user cities in localStorage
+        } else {
+          setUserCities([]);
+        }
+
         setIsLoading(false);
       } catch (err) {
         setIsLoading(false);
@@ -42,19 +50,14 @@ const Home = () => {
     };
 
     const sendRequestToWeatherApi = async data => {
-      const userLibrary = data.userCities;
       let cityIds = "";
 
-      if (userLibrary === 0) {
-        throw new Error("User library is empty");
-      }
-
       // Concatenate city Ids into one string
-      for (let i = 0; i < userLibrary.length; i++) {
-        if (i === userLibrary.length - 1) {
-          cityIds += userLibrary[i].apiId;
+      for (let i = 0; i < data.length; i++) {
+        if (i === data.length - 1) {
+          cityIds += data[i].apiId;
         } else {
-          cityIds += userLibrary[i].apiId + ",";
+          cityIds += data[i].apiId + ",";
         }
       }
 
@@ -73,8 +76,10 @@ const Home = () => {
       }
     };
 
-    getUserCities();
-  }, []);
+    if (auth.userId) {
+      getUserCities();
+    }
+  }, [auth]);
 
   const errorHandler = () => {
     setError(null);

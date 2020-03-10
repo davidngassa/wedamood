@@ -85,7 +85,7 @@ const AuthPage = () => {
         }
 
         setIsLoading(false);
-        auth.login();
+        auth.login(responseData.user.id);
       } catch (err) {
         setIsLoading(false);
         setError(err.message || "Something went wrong, please try again.");
@@ -111,7 +111,7 @@ const AuthPage = () => {
         }
 
         setIsLoading(false);
-        auth.login();
+        auth.login(responseData.newUser.id);
       } catch (err) {
         setIsLoading(false);
         setError(err.message || "Something went wrong, please try again.");

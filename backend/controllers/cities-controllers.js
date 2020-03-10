@@ -87,7 +87,7 @@ const saveCity = async (req, res, next) => {
     );
   }
 
-  // If everything okay goes on to save city
+  // If everything is okay, goes on to save city
   const newCity = new City({
     apiId: apiId,
     user: user

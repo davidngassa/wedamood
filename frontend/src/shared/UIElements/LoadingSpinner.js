@@ -4,8 +4,9 @@ import "./LoadingSpinner.css";
 
 const LoadingSpinner = props => {
   return (
-    <div className={`${props.asOverlay && "loading-spinner__overlay"}`}>
-      <div className="loading-ring"></div>
+    <div className="spinner">
+      <div className="dot1"></div>
+      <div className="dot2"></div>
     </div>
   );
 };
