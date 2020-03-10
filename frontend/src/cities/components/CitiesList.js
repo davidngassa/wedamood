@@ -11,7 +11,9 @@ import City from "./City";
 import AddCityButton from "./AddCityButton";
 
 const CitiesList = props => {
-  const userCities = props.data;
+  const userCities = props.cities;
+
+  console.log(userCities);
 
   return (
     <OwlCarousel className="owl-theme" margin={100} nav dots={false} items={3}>

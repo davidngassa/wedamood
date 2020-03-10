@@ -37,7 +37,7 @@ const getCitiesByUserId = async (req, res, next) => {
     return next(error);
   }
 
-  if (!userCities || userCities.length === 0) {
+  if (!userCities) {
     return next(
       new HttpError("Could not find any city for the provided userId", 404)
     );
@@ -87,7 +87,7 @@ const saveCity = async (req, res, next) => {
     );
   }
 
-  // If everything okay goes on to save city
+  // If everything is okay, goes on to save city
   const newCity = new City({
     apiId: apiId,
     user: user

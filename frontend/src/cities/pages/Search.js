@@ -37,6 +37,7 @@ const Search = () => {
         <div className="search-result">
           {results.slice(0, 5).map((city, i) => (
             <SearchSuggestion
+              key={i}
               cityName={city.name}
               cityCountry={city.country}
               cityApiId={city.id}
