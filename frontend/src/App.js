@@ -55,9 +55,6 @@ const App = () => {
         <Route path="/auth" exact>
           <AuthPage />
         </Route>
-        <Route path="/forecast/:cid/" exact>
-          <Forecast />
-        </Route>
         <Redirect to="/" />
       </Switch>
     );
@@ -65,7 +62,12 @@ const App = () => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn: isLoggedIn, userId: userId, login: login, logout: logout }}
+      value={{
+        isLoggedIn: isLoggedIn,
+        userId: userId,
+        login: login,
+        logout: logout
+      }}
     >
       <Router>
         <MainNavigation />
