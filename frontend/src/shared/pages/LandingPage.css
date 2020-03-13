@@ -22,7 +22,7 @@
 
   text-align: left;
 
-  color: #fff;
+  color: var(--primary-color);
 
   align-items: flex-end;
   justify-content: center;

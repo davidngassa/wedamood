@@ -25,3 +25,7 @@
 .owl-stage-outer {
   margin-bottom: 50px;
 }
+
+.owl-item {
+  width: 425px !important;
+}

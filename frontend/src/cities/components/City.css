@@ -3,16 +3,16 @@
   flex-direction: column;
   padding: 40px 0;
   cursor: pointer;
-  transition: 0.2s all ease-in-out;
+  transition: 0.2s all linear;
   text-align: center;
   border-radius: 5%;
-  background-color: #0093c948;
+  background-color: var(--tertiary-color);
   justify-content: center;
   align-items: center;
 }
 
 .city:hover {
-  background-color: #008dc0;
+  background-color: var(--hover-color);
 }
 
 .city__footer {

@@ -1,3 +1,13 @@
+:root {
+  --primary-color: #172633;
+  --accent-color: #ff5577;
+  --secondary-color: #eaf1f3;
+  --tertiary-color: #d9dedf;
+  --hover-color: rgba(252, 74, 110, 0.753);
+  --button-disabled-color: #db4a67;
+  --input-placeholder: #2a465fb6;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,13 +20,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #fff;
+  color: var(--primary-color);
   overflow-x: hidden;
-  background: #00bbff;
+  background: var(--secondary-color);
 }
 
 a {
-  color: #fff;
+  color: var(--primary-color);
   text-decoration: none;
 }
 

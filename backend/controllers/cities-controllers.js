@@ -5,24 +5,6 @@ const HttpError = require("../models/http-error");
 const City = require("../models/city");
 const User = require("../models/user");
 
-let DUMMY_PLACES = [
-  {
-    id: "c1",
-    apiId: "2172797",
-    user: "u1"
-  },
-  {
-    id: "c2",
-    apiId: "1850147",
-    user: "u2"
-  },
-  {
-    id: "c3",
-    apiId: "2172797",
-    user: "u3"
-  }
-];
-
 const getCitiesByUserId = async (req, res, next) => {
   const userId = req.params.uid;
   let userCities;
@@ -55,7 +37,8 @@ const saveCity = async (req, res, next) => {
     throw new HttpError("Invalid inputs passed, please check your data", 422);
   }
 
-  const { apiId, user } = req.body;
+  const { apiId } = req.body;
+  const user = req.userData.userId;
 
   // Checking if user exists
   let existingUser;
@@ -125,6 +108,10 @@ const deleteCityById = async (req, res, next) => {
 
   if (!city) {
     return next(new HttpError("Could not find city for the provided id", 404));
+  }
+
+  if (city.user.id !== req.userData.userId) {
+    return next(new HttpError("You are not allowed to delete this city", 401));
   }
 
   try {

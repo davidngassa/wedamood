@@ -1,8 +1,7 @@
 .Button {
-  border: 3px solid transparent;
   font-size: 1em;
-  padding: 12px 30px;
-  background: #ff6403;
+  padding: 20px 30px;
+  background: var(--accent-color);
   font-weight: 600;
   color: white;
   transition: all 0.3s ease-in-out;
@@ -11,18 +10,18 @@
   text-transform: uppercase;
   margin: 15px 0;
   outline: none;
+  border: none;
+  border-radius: 15px;
 }
 
 .Button:hover {
-  color: #ff6403;
-  background: rgba(255, 100, 3, 0.3);
-  border: 3px solid #ff6403;
+  background: var(--hover-color);
 }
 
 .Button:disabled,
 .Button:hover:disabled,
 .Button:active:disabled {
-  background: #ff6403b6;
+  background: var(--button-disabled-color);
   color: rgb(214, 211, 211);
 
   cursor: not-allowed;

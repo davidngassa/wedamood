@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
+import { GiTerror } from "react-icons/gi";
 
 import "./Modal.css";
 import Backdrop from "./Backdrop";
@@ -10,6 +11,7 @@ const ModalOverlay = props => {
     <div className={`modal ${props.className}`} style={props.style}>
       <header className={`modal__header ${props.headerClass}`}>
         <h2>{props.header}</h2>
+        <GiTerror size={32} />
       </header>
       <form
         onSubmit={
