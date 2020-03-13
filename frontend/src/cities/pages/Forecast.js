@@ -64,7 +64,8 @@ const Forecast = () => {
       const response = await fetch("http://localhost:5000/api/cities/", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token
         },
         body: JSON.stringify({
           apiId: cid,
@@ -105,7 +106,8 @@ const Forecast = () => {
         {
           method: "DELETE",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + auth.token
           }
         }
       );
@@ -137,7 +139,7 @@ const Forecast = () => {
           <React.Fragment>
             <Link className="back-button" to="/home">
               <MdKeyboardBackspace size={32} />
-              <p>Back to Home</p>
+              {/* <p>Back to Home</p> */}
             </Link>
 
             <div className="forecast-container__top">
