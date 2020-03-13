@@ -58,16 +58,16 @@
   align-items: center;
 }
 
-.forecast-container__buttons button {
-  background: none;
-  border: none;
-  margin-left: 50px;
-  color: white;
-  border-bottom: 1px solid transparent;
-  transition: all ease-in-out 0.2s;
-  padding-bottom: 5px;
+.forecast-container__buttons button:hover {
+  border-bottom: 3px solid var(--hover-color);
 }
 
-.forecast-container__buttons button:hover {
-  border-bottom: 3px solid #0093c98a;
+.back-button {
+  width: 85%;
+  color: var(--accent-color);
+}
+
+.back-button p {
+  margin: 0;
+  font-size: 0.8rem;
 }

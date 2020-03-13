@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
+import { MdKeyboardBackspace } from "react-icons/md";
 
 import "./Forecast.css";
 import MiniForecast from "../components/MiniForecast";
@@ -9,6 +10,7 @@ import {
 } from "../components/weatherCalculator";
 import LoadingSpinner from "../../shared/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/UIElements/ErrorModal";
+import Button from "../../shared/UIElements/Button";
 import { AuthContext } from "../../shared/context/auth-context";
 
 const Forecast = () => {
@@ -42,18 +44,10 @@ const Forecast = () => {
       setIsLoading(false);
     };
 
-    const checkIfCityAlreadySaved = () => {
-      const userCities = JSON.parse(localStorage.getItem("userCities")); // Get user cities from local storage
-
-      userCities.forEach(city => {
-        if (city.apiId === cid) {
-          setIsCitySaved(true);
-          return;
-        }
-      });
-
-      setIsCitySaved(false);
-      return;
+    const checkIfCityAlreadySaved = async () => {
+      const userCities = await JSON.parse(localStorage.getItem("userCities")); // Get user cities from local storage
+      const foundCity = userCities.find(city => city.apiId === cid);
+      foundCity ? setIsCitySaved(true) : setIsCitySaved(false);
     };
 
     getCityForecast();
@@ -122,6 +116,7 @@ const Forecast = () => {
       }
 
       setIsLoading(false);
+      history.push("/home");
     } catch (err) {
       setError(err.message || "Something went wrong, please try again");
       setIsLoading(false);
@@ -138,8 +133,13 @@ const Forecast = () => {
 
       <div className="wrapper forecast-container">
         {isLoading && <LoadingSpinner />}
-        {!isLoading && city && (
+        {!isLoading && city && isCitySaved !== null && (
           <React.Fragment>
+            <Link className="back-button" to="/home">
+              <MdKeyboardBackspace size={32} />
+              <p>Back to Home</p>
+            </Link>
+
             <div className="forecast-container__top">
               <div className="forecast-container__top__left">
                 <h1>{city.city.name}</h1>
@@ -166,10 +166,10 @@ const Forecast = () => {
               ))}
             </div>
             <div className="forecast-container__buttons">
-              {isCitySaved ? (
-                <button onClick={handleDelete}>Remove</button>
+              {isCitySaved === true ? (
+                <Button onClick={handleDelete}>Remove</Button>
               ) : (
-                <button onClick={handleSave}>Save</button>
+                <Button onClick={handleSave}>Save</Button>
               )}
             </div>
           </React.Fragment>

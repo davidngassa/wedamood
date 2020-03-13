@@ -16,7 +16,7 @@
   display: inline-block;
   position: absolute;
   top: 0;
-  background-color: #ff6403;
+  background-color: var(--accent-color);
   border-radius: 100%;
 
   -webkit-animation: sk-bounce 2s infinite ease-in-out;

@@ -8,7 +8,7 @@
   transition: 0.2s all ease-in-out;
 
   border-radius: 5%;
-  background: #01a7e4;
+  background: var(--tertiary-color);
 
   justify-content: center;
   align-items: center;
@@ -19,5 +19,5 @@
 }
 
 .add-button:hover {
-  background: #008dc0;
+  background: var(--hover-color);
 }

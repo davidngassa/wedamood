@@ -5,6 +5,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: #00a4df8a;
+  background: transparent;
   border-radius: 50px;
 }

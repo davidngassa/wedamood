@@ -6,7 +6,7 @@
   height: 100%;
   margin-left: 10%;
 
-  color: #fff;
+  color: var(--primary-color);
 
   justify-content: center;
 }
@@ -30,7 +30,7 @@
   transition: 0.3s all ease-in-out;
   text-decoration: underline;
 
-  color: #fff;
+  color: var(--accent-color);
   border: none;
   outline: none;
   background: transparent;
