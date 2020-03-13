@@ -37,7 +37,8 @@ const saveCity = async (req, res, next) => {
     throw new HttpError("Invalid inputs passed, please check your data", 422);
   }
 
-  const { apiId, user } = req.body;
+  const { apiId } = req.body;
+  const user = req.userData.userId;
 
   // Checking if user exists
   let existingUser;

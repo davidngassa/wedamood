@@ -9,16 +9,13 @@ const router = express.Router();
 // Get cities saved by user corresponding to the provided user id
 router.get("/user/:uid", citiesControllers.getCitiesByUserId);
 
-router.use(checkAuth );
+router.use(checkAuth);
 
 // Add new city saved by a user
 router.post(
   "/",
   [
     check("apiId")
-      .not()
-      .isEmpty(),
-    check("user")
       .not()
       .isEmpty()
   ],

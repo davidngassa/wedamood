@@ -68,8 +68,7 @@ const Forecast = () => {
           Authorization: "Bearer " + auth.token
         },
         body: JSON.stringify({
-          apiId: cid,
-          user: auth.userId
+          apiId: cid
         })
       });
 
