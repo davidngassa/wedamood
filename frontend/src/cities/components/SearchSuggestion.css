@@ -20,7 +20,7 @@
 }
 
 .search-suggestion:hover {
-  background: var(--hover-color);
+  background: var(--city-hover-color);
 }
 
 .search-suggestion span {

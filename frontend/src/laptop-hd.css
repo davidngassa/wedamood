@@ -1,0 +1,108 @@
+@media screen and (max-width: 1367px) {
+  :root {
+    --font-size-large: 30px;
+    --font-size-link: 14px;
+    --font-size-logo: 18px;
+    --font-size-button: 0.9em;
+  }
+
+  #root {
+    overflow-y: hidden;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  main .wrapper {
+    margin: 40px auto;
+  }
+
+  /* Auth Page */
+  .auth-section__container .auth-section__header h1 {
+    font-size: 42px;
+
+    margin-bottom: 20px;
+  }
+
+  .auth-section__container .auth-section__header p {
+    margin: 0;
+  }
+
+  .auth-page__form .form-control input {
+    margin-bottom: 20px;
+  }
+
+  .input-title {
+    margin-bottom: 7px;
+  }
+  /**** ---- ****/
+
+  /* Large Animations */
+  .animation .icon {
+    font-size: 3.5em;
+  }
+
+  .rainbow-container {
+    position: relative;
+  }
+
+  .rainbow-container .rainbow {
+    width: 250px;
+    height: 250px;
+    margin-left: 10%;
+  }
+
+  .rainbow-container .rainbow:after {
+    bottom: 10px;
+    left: 20px;
+    width: 350px;
+    height: 50px;
+  }
+
+  /*** ---- ***/
+
+  /* Home Page */
+  .owl-item .city {
+    padding: 20px 0;
+  }
+
+  .container .owl-item {
+    width: 400px !important;
+  }
+
+  .owl-item .add-button {
+    height: 518.89px;
+  }
+
+  .city .city__animation {
+    height: 125px;
+  }
+
+  main .container {
+    margin: 55px auto 25px auto;
+  }
+
+  /* Search Page */
+  .search-wrapper #search-input {
+    font-size: 1.5em;
+    width: 100%;
+  }
+
+  /* Forecast Page */
+  .wrapper.forecast-container h1 {
+    font-size: 42px;
+  }
+
+  .wrapper.forecast-container h2 {
+    font-size: 30px;
+  }
+
+  .forecast-container__bottom .mini-forecast {
+    padding-top: 40px;
+  }
+
+  .mini-forecast .mini-forecast__animation {
+    display: none;
+  }
+}

@@ -185,6 +185,7 @@ const AuthPage = () => {
                 ></Input>
                 <Button
                   type="submit"
+                  id="auth-button"
                   className="auth-page__form__submit-button"
                   disabled={!formState.isValid}
                 >

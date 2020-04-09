@@ -7,11 +7,11 @@ import { EvaluateWeatherId, EvaluateTimeHour } from "./weatherCalculator";
 const MiniForecast = props => {
   return (
     <div className="mini-forecast">
-      <h3>{EvaluateTimeHour(props.dateTime)}h</h3>
+      <h4>{EvaluateTimeHour(props.dateTime)}h</h4>
       <div className="mini-forecast__animation">
         <div className={EvaluateWeatherId(props.descriptionId, "mini")}></div>
       </div>
-      <h4>{props.temperature}°C</h4>
+      <h3>{props.temperature}°C</h3>
     </div>
   );
 };

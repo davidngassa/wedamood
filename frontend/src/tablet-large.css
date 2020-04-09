@@ -1,0 +1,12 @@
+@media screen and (max-width: 1024px) {
+  .forecast-container__top .forecast-container__top__right {
+    padding: 0;
+  }
+  .mini-forecast .mini-forecast__animation {
+    display: flex;
+  }
+
+  .container .owl-item {
+    width: 340px !important;
+  }
+}

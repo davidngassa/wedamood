@@ -1,37 +1,28 @@
 .animation {
   position: relative;
-
   display: flex;
-
   width: 50%;
   height: 100%;
-
   justify-content: center;
   align-items: center;
 }
 
 .landing-description {
   line-height: 25px;
-
   display: flex;
   flex-direction: column;
-
   width: 50%;
   height: 100%;
   margin-left: 10%;
-
   text-align: left;
-
   color: var(--primary-color);
-
   align-items: flex-end;
   justify-content: center;
 }
 
 .landing-description h1 {
-  font-size: 48px;
+  font-size: var(--font-size-large);
   line-height: 1.1;
-
   align-self: flex-start;
 }
 
@@ -41,11 +32,8 @@
 
 .icon {
   font-size: 4em; /* control icon size here */
-
   position: relative;
-
   display: inline-block;
-
   width: 12em;
   height: 10em;
 }
@@ -54,12 +42,9 @@
   position: absolute;
   top: 35%;
   left: 40%;
-
   width: 2.5em;
   height: 2.5em;
-
   animation: spin 12s infinite linear;
-
   border-radius: 50%;
   background: #f9d71c;
   box-shadow: 0 0 0 0.375em #f9d71c;
@@ -69,13 +54,10 @@
   position: absolute;
   top: -2em;
   left: 50%;
-
   display: block;
-
   width: 0.375em;
   height: 1.125em;
   margin-left: -0.1875em;
-
   border-radius: 0.25em;
   background: #f9d71c;
   box-shadow: 0 5.375em #f9d71c;

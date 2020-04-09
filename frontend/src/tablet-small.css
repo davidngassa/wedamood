@@ -1,0 +1,6 @@
+@media screen and (max-width: 768px) {
+  .container .owl-item {
+    width: 300px !important;
+    margin-right: 20px;
+  }
+}
