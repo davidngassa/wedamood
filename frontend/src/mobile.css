@@ -1,4 +1,74 @@
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
+  #root {
+    height: 100vh;
+  }
+
+  main {
+    height: 100%;
+  }
+
+  main .container {
+    height: 90vh;
+  }
+
+  /* Header */
+
+  #root .header {
+    padding: 20px 30px;
+    display: flex;
+  }
+  #root .header a {
+    display: block;
+    float: none;
+    padding: 12px;
+    text-align: left;
+  }
+  #root .header-right {
+    float: none;
+  }
+
+  .main-navigation__header-nav {
+    display: none;
+  }
+
+  .header #drawer-button {
+    display: block;
+  }
+
+  .header #drawer-button img {
+    height: 40px;
+    width: auto;
+    margin-right: 15px;
+  }
+
+  .main-navigation__drawer-nav {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #drawer-hook .side-drawer {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    height: 100vh;
+    width: 70%;
+    background: rgb(245, 245, 245);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  }
+
+  #drawer-hook .side-drawer .header-right {
+    float: none;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
   /* Landing Page */
   .wrapper .landing-description {
     margin-left: 0;

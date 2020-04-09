@@ -35,17 +35,6 @@
   float: right;
 }
 
-@media screen and (max-width: 500px) {
-  .header {
-    padding: 20px 10px;
-  }
-  .header a {
-    display: block;
-    float: none;
-    padding: 12px;
-    text-align: left;
-  }
-  .header-right {
-    float: none;
-  }
+#drawer-button {
+  display: none;
 }

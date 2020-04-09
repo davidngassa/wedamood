@@ -10,25 +10,25 @@ import "./CitiesList.css";
 import City from "./City";
 import AddCityButton from "./AddCityButton";
 
-const CitiesList = props => {
+const CitiesList = (props) => {
   const userCities = props.cities;
 
   const state = {
     responsive: {
       0: {
-        items: 1
+        items: 1,
       },
       450: {
-        items: 1
+        items: 1,
       },
       600: {
-        items: 2
+        items: 2,
       },
 
       1025: {
-        items: 2
-      }
-    }
+        items: 2,
+      },
+    },
   };
 
   console.log(userCities);
@@ -39,7 +39,6 @@ const CitiesList = props => {
       nav
       dots={false}
       items={3}
-      autoHeight={true}
       responsive={state.responsive}
       navSpeed={50}
     >
