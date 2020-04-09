@@ -1,11 +1,16 @@
 :root {
   --primary-color: #172633;
   --accent-color: #ff5577;
-  --secondary-color: #eaf1f3;
-  --tertiary-color: #d9dedf;
+  --secondary-color: rgb(245, 245, 245);
+  --tertiary-color: rgb(225, 225, 225);
+  --city-hover-color: rgb(205, 205, 205);
   --hover-color: rgba(252, 74, 110, 0.753);
   --button-disabled-color: #db4a67;
   --input-placeholder: #2a465fb6;
+  --font-size-large: 46px;
+  --font-size-link: 16px;
+  --font-size-logo: 22px;
+  --font-size-button: 1em;
 }
 
 * {
@@ -15,14 +20,22 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: Poppins;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--primary-color);
   overflow-x: hidden;
   background: var(--secondary-color);
+}
+
+button,
+input {
+  font-family: Poppins;
+}
+
+h4,
+p {
+  font-weight: 100;
 }
 
 a {
@@ -36,11 +49,6 @@ code {
 }
 
 @font-face {
-  font-family: "Foco";
-  src: local("Foco"), url(./fonts/Foco-Regular.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Gotham";
-  src: local("Foco"), url(./fonts/GothamLight.ttf) format("truetype");
+  font-family: "Poppins";
+  src: local("Poppins"), url(./fonts/Poppins-Regular.ttf) format("truetype");
 }

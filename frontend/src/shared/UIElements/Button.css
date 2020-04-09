@@ -1,5 +1,5 @@
 .Button {
-  font-size: 1em;
+  font-size: var(--font-size-button);
   padding: 20px 30px;
   background: var(--accent-color);
   font-weight: 600;

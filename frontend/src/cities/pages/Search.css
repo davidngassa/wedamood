@@ -11,11 +11,11 @@
   text-align: left;
 
   border-radius: 10px;
-  background: var(--accent-color);
+  background: var(--tertiary-color);
 }
 
 #search-input::selection {
-  background-color: var(accent-color);
+  background-color: var(--tertiary-color);
 }
 
 #search-input {
@@ -23,12 +23,12 @@
 
   width: 50%;
 
-  color: #fff;
+  color: var(--primary-color);
   border: none;
   outline: none;
   background: transparent;
 }
 
 #search-input::placeholder {
-  color: var(--tertiary-color);
+  color: var(--input-placeholder);
 }

@@ -1,0 +1,103 @@
+@media screen and (max-width: 450px) {
+  /* Landing Page */
+  .wrapper .landing-description {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .wrapper .landing-description a {
+    align-self: flex-end;
+  }
+
+  .wrapper .animation {
+    display: none;
+  }
+
+  /*** --- ***/
+
+  /* Auth Page */
+  .wrapper .rainbow-container {
+    display: none;
+  }
+
+  .wrapper .auth-section__container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .wrapper .auth-page__form {
+    width: 100%;
+  }
+
+  #auth-button {
+    width: 100%;
+    margin: 25px auto;
+  }
+
+  /*** --- ***/
+
+  /* Home Page */
+
+  main .container {
+    margin: 0px auto 0px auto;
+  }
+
+  .container .owl-item {
+    width: 290px !important;
+  }
+
+  .container .owl-nav {
+    display: none !important;
+  }
+
+  /*** --- ***/
+
+  /* Search Page */
+  .search-container .search-wrapper {
+    width: 100%;
+  }
+
+  .search-container .search-wrapper #search-input {
+    width: 100%;
+  }
+  /*** --- ***/
+
+  /* Forecast PAGE */
+
+  .wrapper.forecast-container h1 {
+    font-size: 36px;
+  }
+
+  .wrapper.forecast-container h2 {
+    font-size: 26px;
+  }
+
+  .forecast-container__bottom .mini-forecast h4,
+  .forecast-container__bottom .mini-forecast h3 {
+    margin: 0;
+  }
+
+  main .wrapper.forecast-container {
+    margin: 0 auto;
+    justify-content: flex-start;
+  }
+
+  .forecast-container__top {
+    margin-bottom: 20px;
+  }
+
+  .forecast-container__top__right .forecast__current-weather__animation {
+    display: none;
+  }
+
+  .forecast-container__bottom .mini-forecast {
+    padding-top: 0;
+    height: 80%;
+  }
+
+  .forecast-container__top__right h2 {
+    display: none;
+  }
+
+  /*** --- ***/
+}

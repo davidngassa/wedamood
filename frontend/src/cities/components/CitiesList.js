@@ -13,10 +13,36 @@ import AddCityButton from "./AddCityButton";
 const CitiesList = props => {
   const userCities = props.cities;
 
+  const state = {
+    responsive: {
+      0: {
+        items: 1
+      },
+      450: {
+        items: 1
+      },
+      600: {
+        items: 2
+      },
+
+      1025: {
+        items: 2
+      }
+    }
+  };
+
   console.log(userCities);
 
   return (
-    <OwlCarousel className="owl-theme" margin={100} nav dots={false} items={3}>
+    <OwlCarousel
+      className="owl-theme"
+      nav
+      dots={false}
+      items={3}
+      autoHeight={true}
+      responsive={state.responsive}
+      navSpeed={50}
+    >
       {userCities.map((city, i) => (
         <City
           key={i}

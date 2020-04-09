@@ -11,7 +11,7 @@ const MainNavigation = props => {
   return (
     <MainHeader>
       <Link className="logo" to={auth.isLoggedIn ? "/home" : "/"}>
-        wedamooD
+        wedamood
       </Link>
 
       <NavLinks />

@@ -55,7 +55,7 @@
   opacity: 0.2;
   position: absolute;
   left: 5px;
-  bottom: -60px;
+  bottom: -40px;
   transform: scale(1);
 }
 @keyframes cloudy {
@@ -93,7 +93,7 @@
   opacity: 0.2;
   position: absolute;
   left: 0px;
-  bottom: -60px;
+  bottom: -40px;
   transform: scale(1);
 }
 .mini-rainy:before {
@@ -185,7 +185,7 @@
   opacity: 0.2;
   position: absolute;
   left: 2.5px;
-  bottom: -60px;
+  bottom: -40px;
   transform: scale(1);
 }
 .mini-stormy:before {
@@ -257,7 +257,7 @@
   opacity: 0.2;
   position: absolute;
   left: 4px;
-  bottom: -60px;
+  bottom: -40px;
   transform: scale(1);
 }
 .mini-snowy:before {

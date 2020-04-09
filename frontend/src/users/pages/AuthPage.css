@@ -18,6 +18,7 @@
 
 .auth-section__header h1 {
   font-size: 48px;
+  margin-top: 0;
 }
 
 #auth-page__switch-mode-button {

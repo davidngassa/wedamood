@@ -12,7 +12,7 @@
 }
 
 .city:hover {
-  background-color: var(--hover-color);
+  background-color: var(--city-hover-color);
 }
 
 .city__footer {
